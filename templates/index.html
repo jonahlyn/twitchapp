@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title></title>
+    </head>
+
+    <body>
+        <h1>{{ title }}</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                {% if 'twitch_oauth' not in session %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                {%else %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                <li><a href="/me">Me</a></li>
+                <li><a href="/test">Test</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <article>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </article>
+        <main>
+            <pre>{{ content }}</pre>
+        </main>
+    </body>
+
+</html>

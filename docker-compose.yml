@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: python3.6 -u server.py
+    ports:
+      - "80:80"
+    volumes:
+      - .:/app
+
