@@ -1,4 +1,6 @@
+# Twitch App
 
+A simple Flask app that authenticates to Twitch via OAuth.
 
 
 Build the images
